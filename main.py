@@ -13,14 +13,13 @@ t = 0
 
 def is_valid(url):
     if not url:
-        print("false")
         return False
     else:
         return True
 
 
 def show_progress_bar(stream, chunk, file_handle, bytes_remaining):
-    print(bytes_remaining)
+    #print(bytes_remaining)
     if bytes_remaining == 0:
         global t
         my_string_var.set(f"Downloaded!!! finished in {format(time.time()-t, '.2f')} sec")
