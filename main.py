@@ -2,13 +2,24 @@ import tkinter as tk
 from PIL import ImageTk, Image
 from pytube import Playlist
 from pytube import YouTube
-
 import time
+import os
 
 # test_url = https://www.youtube.com/watch?v=IGQBtbKSVhY
 
-VIDEO_PATH = "/Users/vigneshwar/Desktop/yt-downloader/videos"
-PLAYLIST_PATH = "/Users/vigneshwar/Desktop/yt-downloader/playlist"
+
+#getting the current user
+current_user = os.getlogin()
+
+#checking the os platform
+if os.name == 'posix':
+        VIDEO_PATH = f"/Users/{current_user}/Desktop/yt-downloader/videos"
+        PLAYLIST_PATH = f"/Users/{current_user}/Desktop/yt-downloader/playlist"
+else:
+        VIDEO_PATH = f"c:\\Users\\{current_user}\\Desktop\\videos"
+        PLAYLIST_PATH = f"c:\\Users\\{current_user}\\Desktop\\playlist"
+
+#global variable
 t = 0
 
 def is_valid(url):
@@ -74,7 +85,7 @@ label1 = tk.Label(textvariable = my_string_var)
 label1.grid(column=1, row=6)
 
 img = ImageTk.PhotoImage(Image.open(r"/Users/vigneshwar/Desktop/yt-downloader/image1.jpg").resize((150, 150), Image.ANTIALIAS))
-panel = tk.Label(image=img)
+panel = tk.Label(image=img)     
 panel.grid(column = 1, row = 7)
 
 window.mainloop()
