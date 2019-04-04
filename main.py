@@ -4,12 +4,12 @@ from pytube import Playlist
 from pytube import YouTube
 import time
 import os
+import getpass
 
 # test_url = https://www.youtube.com/watch?v=IGQBtbKSVhY
 
-
 #getting the current user
-current_user = os.getlogin()
+current_user = getpass.getuser()
 
 #checking the os platform
 if os.name == 'posix':
@@ -33,13 +33,14 @@ def show_progress_bar(stream, chunk, file_handle, bytes_remaining):
     #print(bytes_remaining)
     if bytes_remaining == 0:
         global t
+        #to check the time taken
         my_string_var.set(f"Downloaded!!! finished in {format(time.time()-t, '.2f')} sec")
 
 def download_video():
     global t
     t = time.time()
     url = tfield1.get()
-    print(url)
+    #print(url)
     if is_valid(url):
         yt = YouTube(url)
         yt.register_on_progress_callback(show_progress_bar)

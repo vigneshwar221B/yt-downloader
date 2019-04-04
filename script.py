@@ -2,9 +2,10 @@ import tkinter as tk
 from pytube import YouTube
 import sys
 import os
+import getpass
 
 #getting the current user
-current_user = os.getlogin()
+current_user = getpass.getuser()
 
 #checking the os platform
 if os.name == 'posix':
