@@ -4,7 +4,6 @@ from pytube import Playlist
 from pytube import YouTube
 import time
 import os
-import getpass
 
 # test_url = https://www.youtube.com/watch?v=IGQBtbKSVhY
 
@@ -12,12 +11,10 @@ import getpass
 current_user = getpass.getuser()
 
 #checking the os platform
-if os.name == 'posix':
-        VIDEO_PATH = f"/Users/{current_user}/Desktop/yt-downloader/videos"
-        PLAYLIST_PATH = f"/Users/{current_user}/Desktop/yt-downloader/playlist"
-else:
-        VIDEO_PATH = f"c:\\Users\\{current_user}\\Desktop\\videos"
-        PLAYLIST_PATH = f"c:\\Users\\{current_user}\\Desktop\\playlist"
+
+VIDEO_PATH = os.getcwd()+"/videos"
+PLAYLIST_PATH = os.getcwd()+"/playlist"
+
 
 #global variable
 t = 0
@@ -27,7 +24,6 @@ def is_valid(url):
         return False
     else:
         return True
-
 
 def show_progress_bar(stream, chunk, file_handle, bytes_remaining):
     #print(bytes_remaining)
