@@ -7,10 +7,7 @@ import os
 
 # test_url = https://www.youtube.com/watch?v=IGQBtbKSVhY
 
-#getting the current user
-current_user = getpass.getuser()
-
-#checking the os platform
+#download folder
 
 VIDEO_PATH = os.getcwd()+"/videos"
 PLAYLIST_PATH = os.getcwd()+"/playlist"
